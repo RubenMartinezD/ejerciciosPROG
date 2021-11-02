@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+// 1. programa que diga si dos numeros son multiplos o no (booleano)
+function ej1(){
+var nume1=prompt("Introduce un numerote")
+var nume2=prompt("Introduce otro numerito")
+if ((nume1%nume2)==0) {multiplo = true}
+else {multiplo = false}
+console.log(multiplo); 
+}
+
+// 2. comprobar si es un numero primo si es menor que 100
+function ej2(){
+var sub100=prompt("Dígame un numerito, pero cuidado porque no soporto más de dos dígitos")
+if (sub100>=100) {console.log("Fuera de aquí. Es un número demasiado largo")}
+else {
+        for (i=1;i<sub100;i++){
+           if (((sub100%i)==0)&&i!==1) {primo = false; break}
+           else {primo = true} }
+        console.log(primo);
+}
+}
+// 3. Mostrar cada caracter de una cadena de caracteres de forma individual
+function ej3(){
+    var frase=prompt("Dígame un verso de Miguel de Cervantes")
+    var str = Array.from(frase)
+    console.log(str);
+
+}
+// 4. Crear un objeto en base a un nombre y una cantidad de alimento
+function ej4(){
+    var nombre=prompt("Dígame el nombre de la comida para cenar")
+    var cantidad=prompt("Dígame el numero de unidades")
+    var alimento = new Object();
+    alimento.nombre= nombre;
+    alimento.cantidad= cantidad;
+
+    alert("Se ha introducido el alimento "+ alimento.nombre +" con "+ alimento.cantidad +" de unidades en stock" )
+}
+
+// 5 Crear objeto cuadrilatero segun valores de base y altura. Crear funcion calculo area
+function ej5(){
+    var base=prompt("Dime la longitud de la base (b) del rectángulo")
+    var altura=prompt("Dime la longitud de la altura (h) del rectángulo")
+    var cuadrlt = new Object();
+        cuadrlt.altura= altura;
+        cuadrlt.base= base;
+        cuadrlt.area = function(){   
+            var resultado=(cuadrlt.base*cuadrlt.altura)
+            return resultado
+        }
+    var areafinal = cuadrlt.area(cuadrlt.base,cuadrlt.altura)
+    
+    alert("El área de tu rectángulo es de "+areafinal+" metros cuadrados")
+
+}
+
+// 6. Mostrar media de hasta 10 numeros (acumulativa)
+function ej6(){
+var nume=prompt("Introduce el numerito inicial")
+for   (i=1;i<11;i++){
+        media=(nume/i);
+        sigui=prompt("Introduce el número "+i+" de la serie. La media actual es de "+media)
+        nume=(+nume + +sigui)
+        media=(nume/i)
+        console.log("la media actual es de "+media)
+        }
+media=(nume/10)
+alert("La media final de los diez números fue "+ media)
+
+
+}
+// 7. crear 4 objetos de tipo aventurero con varios atributos
+function ej7(){
+    for   (i=1;i<5;i++){
+        var av = new aventurero()
+        var aventurero = function(nombre){
+            var nombre=prompt("Dígame el nombre del pringao aventurero número "+i)
+            var clase=prompt("Hora de mencionar la clase del fulano")
+            var raza=prompt("Mención de la raza, no por clasismo ni nada")
+            var nivel=prompt("El nivel 1 es el mejor. A que sí")
+            var frasecilla=alert("Se ha creado un aventurero de nombre "+nombre+" con una clase de "+clase+" de raza "+raza+"y de nivel "+nivel)
+            return frasecilla
+        }
+    }
+
+
+}
+
+// 8. calculadora
+function ej8(){
+function op1(){
+    var suma1=prompt("Bienvenido al sumatorio S.L. Dígame su primera cifra")
+    var suma2=prompt("Suelte YA su segunda cifra")
+    var resultado=(+suma1 + +suma2)
+    alert("El resultado de tan tremenda operación es nada menos que un "+resultado)
+}
+function op2(){
+    var suma1=prompt("Malvenido al restatorio S.A. Dígame su primera cifra")
+    var suma2=prompt("Suelte su segunda cifra, si quiere. Se restará a la primera cifra")
+    var resultado=suma1-suma2
+    alert("El resultado de tan tremenda operación es nada menos que un "+resultado)
+}
+function op3(){
+    var suma1=prompt("Este es el multiplicatiorio Inc. Dígame su primer múltiplo")
+    var suma2=prompt("Dígame su segunda cifra, o multiplíquese por cero")
+    var resultado=suma1*suma2
+    alert("El resultado de tan tremenda operación es nada menos que un "+resultado)
+}
+function op4(){
+    var suma1=prompt("Este es el dividisorio S.Coop. Dígame su dividendo")
+    var suma2=prompt("Dígame el divisorcillo")
+    var resultado=suma1/suma2
+    alert("El resultado de tan tremenda operación es nada menos que un "+resultado)
+}
+
+encendido=1
+while (encendido=1){
+var oper=prompt("Escriba el numerito correspondiente a la tarea.\n\n1. Suma de dos números\n2. Resta de dos números\n3. Multiplicación de dos números\n4. División de dos números\n Escribe 'salir' para salir")
+if (oper>0&&oper<5) {
+    var funcioncille=("op"+oper)
+    var fn= window[funcioncille]
+    fn()
+    }
+else if (oper=="salir"){encendido=0; break}
+else {alert("Esa tarea déjesela a las brillantes mentes de la NASA")}
+}
+
+}
+// 9. hacer funcionizar todo
+encendido=1
+while (encendido=1){
+var ejer=prompt("Escriba el numerito correspondiente al ejercicio, del 1 al 8.\n\n1. Programa que muestre si un numero es mayor o menor que 10\n2. Programa que diga si pusiste b minúscula\n3. Decir edad en base al año\n4. Lista de la compra. Mostrar precio al usuario del producto que seleccione\n5. Cálculo de áreas a demanda del usuario\n6. Decir si hay b, en caso afirmativo decir si hay p. Igualmente, decir si hay v y en caso afirmativo decir si hay u\n7. Decir si el número introducido es par o impar\n8. Escribir una frase y contar sus caracteres para decir si es un número par o impar\n Escribe 'salir' para salir")
+if (ejer>0&&ejer<9) 
+{
+    var funcioncilla=("ej"+ejer)
+    var fn= window[funcioncilla]
+    fn()
+}
+else if (ejer=="salir"){encendido=0; break}
+else {alert("Esto no entra dentro de mi jurisdicción")}
+}
+</script>
+</body>
+</html>
