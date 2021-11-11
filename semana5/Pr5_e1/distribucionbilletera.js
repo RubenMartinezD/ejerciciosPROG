@@ -90,16 +90,28 @@ alert("Se han retirado "+billete5+" billetes de 5 euros")
     var cantidad = cantidad
     var billetes
     var isCero= false   //varibale booleana para decir si es cero
-    var billete500, billete200, billete100, billete50, billete20, billete20, billete10, billete5
+    var billete500 = 0 , billete200 = 0 , billete100, billete50, billete20, billete20, billete10, billete5
     while (!isCero){
-        if (cantidad > 500){
+        if (cantidad >= 500){
         cantidad = cantidad -500
         }
-        else  if (cantidad > 200){
+        else  if (cantidad >= 200){
         cantidad = cantidad -200
         }
+    // CONTINUAR
+        else{ isCero=true }
     }
+     billetes = "500" -> "+billete500+"\n200 -> "+billete200+"\n100 -> "+billete100+"\n50 -> "+billete50+"\n20 -> "+billete20+"\n10 -> "+billete10+"\n5 -> "+billete5
     return billetes
+   }
+   
+   function multiplo_de_5_0(cantidad){
+   var cantidad_a_testar = cantidad
+   if ((cantidad_a_testar%5)!==0){
+   isMultiplo = True
+   }
+   return isMultiplo
+   }
 
 
 } /*
