@@ -86,7 +86,8 @@ alert("Se han retirado "+billete10+" billetes de 10 euros")
 alert("Se han retirado "+billete5+" billetes de 5 euros")
 }
 
-/*function retirada_bill(valor){
+/*function retirada_bill(cantidad){
+    var cantidad = cantidad
     var billetes
     var isCero= false   //varibale booleana para decir si es cero
     var billete500, billete200, billete100, billete50, billete20, billete20, billete10, billete5
