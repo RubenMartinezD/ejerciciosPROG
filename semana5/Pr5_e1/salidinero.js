@@ -6,3 +6,7 @@ function salidinero() {
     alert("Se han retirado "+billete10+" billetes de 10 euros")
     alert("Se han retirado "+billete5+" billetes de 5 euros")
     }
+
+/*function salidinero(mensaje){
+    console.log(mensaje)
+}*/
