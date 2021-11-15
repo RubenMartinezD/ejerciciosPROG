@@ -1,89 +1,51 @@
 function distribucionbilletera (dinero){
     alert("Se distribuirán billetes con valor de "+dinero)
-var dondinero=dinero
-function fbillete200(dondinero){
-    var billete200=0
-    while (dondinero!==0){
-        if ((dondinero-200)>=0){
-        dondinero=dondinero-200
-        billete200++
+    
+    var dinero=dinero
+    var isCero=false
+    var billete5=0, billete10=0, billete20=0, billete50=0, billete100=0, billete200=0, billete500=0
+    while (!isCero){
+        if (dinero >= 500){
+            dinero=dinero-500
+            billete500++
         }
-        else exit
-    }
-    return billete200
+        else if (dinero >= 200){
+            dinero=dinero-200
+            billete200++
+        }
+        else if (dinero >= 100){
+            dinero=dinero-100
+            billete100++
+        }
+        else if (dinero >= 50){
+            dinero=dinero-50
+            billete50++
+        }
+        else if (dinero >= 20){
+            dinero=dinero-20
+            billete20++
+        }
+        else if (dinero >= 10){
+            dinero=dinero-10
+            billete10++
+        }
+        else if (dinero >= 5){
+            dinero=dinero-5
+            billete5++
+        }
+        else {isCero = true}
 }
 
-function fbillete100(dondinero){
-    var billete100=0
-    while (dondinero!==0){
-        if ((dondinero-100)>=0){
-        dondinero=dondinero-100
-        billete100++
-        }
-        else exit
-    }
-    return billete100
-}
+var Salidabilletes
+Salidabilletes = alert("Se han retirado "+billete500+" billetes de 500 euros\n"+
+"Se han retirado "+billete200+" billetes de 200 euros\n"+
+"Se han retirado "+billete100+" billetes de 100 euros\n"+
+"Se han retirado "+billete50+" billetes de 50 euros\n"+
+"Se han retirado "+billete20+" billetes de 20 euros\n"+
+"Se han retirado "+billete10+" billetes de 10 euros\n"+
+"Se han retirado "+billete5+" billetes de 5 euros")
 
-function fbillete50(dondinero){
-    var billete50=0
-    while (dondinero!==0){
-        if ((dondinero-50)>=0){
-        dondinero=dondinero-50
-        billete50++
-        }
-        else exit
-    }
-    return billete50
-}
-
-function fbillete20(dondinero){
-    var billete20=0
-    while (dondinero!==0){
-        if ((dondinero-20)>=0){
-        dondinero=dondinero-20
-        billete20++
-        }
-        else exit
-    }
-    return billete20
-}
-
-function fbillete10(dondinero){
-    var billete10=0
-    while (dondinero!==0){
-        if ((dondinero-10)>=0){
-        dondinero=dondinero-10
-        billete10++
-        }
-        else exit
-    }
-    return billete10
-}
-
-function fbillete5(dondinero){
-    var billete5=0
-    while (dondinero!==0){
-        if ((dondinero-5)>=0){
-        dondinero=dondinero-5
-        billete5++
-        }
-        else exit
-    }
-    return billete5
-}
-fbillete200(dondinero)
-fbillete100(dondinero)
-fbillete50(dondinero)
-fbillete20(dondinero)
-fbillete10(dondinero)
-fbillete5(dondinero)
-alert("Se han retirado "+billete200+" billetes de 200 euros")
-alert("Se han retirado "+billete100+" billetes de 100 euros")
-alert("Se han retirado "+billete50+" billetes de 50 euros")
-alert("Se han retirado "+billete20+" billetes de 20 euros")
-alert("Se han retirado "+billete10+" billetes de 10 euros")
-alert("Se han retirado "+billete5+" billetes de 5 euros")
+return Salidabilletes
 }
 
 /*function retirada_bill(cantidad){
@@ -114,4 +76,4 @@ alert("Se han retirado "+billete5+" billetes de 5 euros")
    }
 
 
-} /*
+} */
