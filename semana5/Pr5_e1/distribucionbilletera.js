@@ -1,6 +1,4 @@
 function distribucionbilletera (dinero){
-    alert("Se distribuirán billetes con valor de "+dinero)
-    
     var dinero=dinero
     var isCero=false
     var billete5=0, billete10=0, billete20=0, billete50=0, billete100=0, billete200=0, billete500=0
