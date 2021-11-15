@@ -1,5 +1,4 @@
 function compmultiplo (dinero){
-    alert(dinero+" pelas ")
     if (dinero<0){
         alert("Lo sentimos, pero solo operamos con números positivos")
         exit
