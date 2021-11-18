@@ -1,4 +1,17 @@
+/** 
+    * Función principal
+    * @type {object} perfil - Variable donde se introducirá el objeto_perfil. Así se puede cambiar cada dato individualmente
+    * @type {object} Arte 
+    * @type {string} menusito - Menú del usuario
+    * @type {string} cambiovariable - Para cuando el usuario quiera cambiar un dato en concreto
+    * @type {object} perfilmostrado - contiene el objeto Perfil
+*/
 function main() {
+    /** 
+    * Función principal, que valora obras de arte
+    * @type {object} perfil - Variable donde se introducirá el objeto_perfil. Así se puede cambiar cada dato individualmente
+
+*/
     var Arte = function () {   //crear objeto Arte
         Arte.prototype.nombre = ""   //crear atributo común nombre, vacío. Se usa prototype para poder heredar
     }
@@ -58,8 +71,7 @@ function main() {
     for (id in Arte.prototype) {
         Teatro.prototype[id] = Arte.prototype[id]
     }
-
-    var peli = new Cine("1:43", "Drama")  //creación de niuevo objeto Cine, con dos parametros de entrada dentro de la variable peli
+    var peli = new Cine("1:43", "Drama")  //creación de nuevo objeto Cine, con dos parametros de entrada dentro de la variable peli
     var estatua = new Escultura("Hierba y palos", "Siglo XXI")
     var cuadrote = new Pintura("Dalí", "Surrealismo")
     var liveaction = new Teatro("1:45", "1889")
