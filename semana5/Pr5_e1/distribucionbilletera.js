@@ -11,7 +11,6 @@
     * @type {number} billete5 - Número de billetes contados con valor de 5 euros
     * @returns {string}  Salidabilletes - Frase que indica los billetes contados
 */
-
 function distribucionbilletera(dinero) {
     var dinero = dinero
     var isCero = false
@@ -47,7 +46,6 @@ function distribucionbilletera(dinero) {
         }
         else { isCero = true }
     }
-
     var Salidabilletes
     Salidabilletes = alert("Se han retirado " + billete500 + " billetes de 500 euros\n" +
         "Se han retirado " + billete200 + " billetes de 200 euros\n" +

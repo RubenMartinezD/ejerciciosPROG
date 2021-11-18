@@ -1,15 +1,15 @@
 /**
     * Función que recoge parámetros de usuario y permite cambiarlos
-    * @param {number} numerousr - Es el dinero dado de antes por el usuario
-    * @type {string} nombrefinal - nombre definitivo que se mostrará al usuario
+    * @param {string} nombre_inicial - Es el nombre dado de antes por el usuario
+    * @param {string} apellido_inicial - Es el apellido dado de antes por el usuario
+    * @param {string} direccion_inicial - Es la dirección dada de antes por el usuario
+    * @param {string} email_inicial - Es el email dado de antes por el usuario
+    * @param {string} telefono_inicial - Es el teléfono dado de antes por el usuario
     * @type {string} apellidofinal
     * @type {string} direccionfinal
     * @type {string} emailfinal
     * @type {string} telefonofinal
 */
-
-
-
 function perfilinicial(nombre_inicial, apellido_inicial, direccion_inicial, email_inicial, telefono_inicial) {// Coger parámetros iniciales metidos por el usuario en las funciones enlazadas a main.js
     var nombrefinal = nombre_inicial
     var apellidofinal = apellido_inicial

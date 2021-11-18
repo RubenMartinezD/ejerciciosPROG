@@ -1,17 +1,11 @@
 /**
     * comprobar si el usuario acierta el número aleatorio
     * @param {number} numerousr - Es el dinero dado de antes por el usuario
-    * resultado - Frase con el resultado
-    * @returns {string} 
+    * @type {string} numerotarget - Es el número aleatorio que el usuario tendrá que adivinar
+    * @returns {string} resultado - Frase con el resultado
 */
-
-
 function determinarandom(numerousr) {
     var numerousr = numerousr
-    /**     
-    * número generado al azar que el usuario intentará adivinar
-    * @type {numerotarget} - 
-    */
     var numerotarget
     numerotarget = (Math.floor(Math.random() * 101))
     var resultado

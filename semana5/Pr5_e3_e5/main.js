@@ -7,7 +7,6 @@
     * @type {string} direccion introducida
     * @type {object} perfilmostrado - contiene el objeto Perfil
 */
-
 function main() {
     var nombre = nuevo_nombre()  // funciones para sacar los parámetros mediante prompts
     var apellidos = nuevos_apellidos()
