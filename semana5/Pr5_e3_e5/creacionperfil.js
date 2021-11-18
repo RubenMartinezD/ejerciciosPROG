@@ -34,13 +34,20 @@ function perfilinicial(nombre_inicial, apellido_inicial, direccion_inicial, emai
         this.telefono = telefono
     }
     var listadatos = new perfil(nombrefinal, apellidofinal, direccionfinal, emailfinal, telefonofinal)
-
+    /**
+     * @type {string} id_nombre - Variable donde se depositará la id de "nombre" extraida del documento html, para luego poder modificar cambios a esa ID
+     * @type {string} id_apellidos
+     * @type {string} id_direccion
+     * @type {number} id_telefono
+     * @type {string} id_email
+     */
     var id_nombre = document.getElementById("nombre")
     var id_apellidos = document.getElementById("apellidos")
     var id_direccion = document.getElementById("direccion")
     var id_telefono = document.getElementById("telefono")
     var id_email = document.getElementById("email")
 
+    //se deposita en el html las variables introducidas por el usuario. (Solo en la primera ejecución)
     id_nombre.innerHTML = nombrefinal
     id_apellidos.innerHTML = apellidofinal
     id_email.innerHTML = emailfinal
