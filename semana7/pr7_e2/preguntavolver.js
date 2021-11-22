@@ -1,7 +1,6 @@
 /**
     * Función para preguntar al usuario si lo quiere volver a intentar
     * @type {string} pregunta - Para que el usuario introduzca s "Sí", o n "No" 
-    * @type {boolean}  respuesta - true: repetir, false: salir
     * 
 */
 function preguntavolver() {

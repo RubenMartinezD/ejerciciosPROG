@@ -1,6 +1,6 @@
 /**
- * 
- * @returns objeto - Objeto a ser utilizado en el concurso
+ * Función para generar un Premio para el concurso
+ * @returns objeto - objeto 
  */
 function generarpremio() {
     var Premio = function (nombre, precioJusto, precioMayor, precioMenor) {
@@ -9,8 +9,7 @@ function generarpremio() {
         Premio.prototype.precioMayor = precioMayor
         Premio.prototype.precioMenor = precioMenor
     }
-
-    var idpremio = Math.floor(Math.random() * 4) + 1;
+    var idpremio = Math.floor(Math.random() * 4) + 1;  //Id generado aleatoriamente para la extracción de valores en los arrays
     var nombrecosaspremiadas = ["", "Escafandra magnética", "300 metros cuadrados de papel albal", "Bloque de hormigón de 1000 toneladas", "Cheque para una entrada al pozo del pueblo"];
     var valoresPrecioMayor = [0, 700, 150, 1800000, 45];
     var valoresPrecioMenor = [0, 500, 145, 1799990, 40];

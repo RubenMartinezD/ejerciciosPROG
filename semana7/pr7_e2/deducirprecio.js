@@ -1,3 +1,7 @@
+/**
+ * 
+ * @param {object} premioGenerado - objeto Premio generado a partir de los datos de los array
+ */
 function deducirprecio(premioGenerado) {
     alert("Bienvenido a El Precio Injusto.\n Tienes 3 intentos para deducir el precio de un objeto.")
     for (var intentosRestantes = 3; intentosRestantes > 0; intentosRestantes--) {

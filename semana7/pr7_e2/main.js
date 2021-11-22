@@ -1,7 +1,6 @@
 /**
-* Función principal
-* @type {numerousr} numerousr - Numero introducido por el usuario
-*/
+ * @type {object} objetoConcurso - objeto recogido para ser empleado en el concurso
+ */
 function main() {
     var objetoConcurso = generarpremio()
     deducirprecio(objetoConcurso)
