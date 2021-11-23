@@ -1,5 +1,5 @@
 /**
- * 
+ * Función para  mostrar el juego de concurso al usuario
  * @param {object} premioGenerado - objeto Premio generado a partir de los datos de los array
  */
 function deducirprecio(premioGenerado) {
