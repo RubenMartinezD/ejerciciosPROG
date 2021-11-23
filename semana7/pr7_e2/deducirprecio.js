@@ -13,7 +13,7 @@ function deducirprecio(premioGenerado) {
         else {
             alert("Lo sentimos, la suerte no ha estado de su lado esta vez");
             if (intentosRestantes == 0) {
-                alert("Se te agotaron los intentitos wey"); break
+                alert("Se le agotaron los intentitos wey"); break
             }
         }
     }
