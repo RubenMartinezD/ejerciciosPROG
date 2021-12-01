@@ -23,8 +23,14 @@ function main() {
                 for (i in array_parking) {
                     var vehiculo_encontrado = array_parking[i]
                     var id_del_vehiculo = parseInt(vehiculo_encontrado.id_vehiculo)
+                    var tipo_vehiculo_encontrado = parseInt(vehiculo_encontrado.tipo_vehiculo)
                     if (id_del_vehiculo == idABorrar) {
-                        array_parking.splice(i)
+                        if (tipo_vehiculo_encontrado == 1) {
+                            array_parking.splice(i, 1)
+                        }
+                        else if (tipo_vehiculo_encontrado == 2) {
+                            array_parking.splice(i, 2)
+                        }
                     }
                 }
                 break
