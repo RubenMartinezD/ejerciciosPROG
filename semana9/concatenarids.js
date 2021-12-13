@@ -15,6 +15,6 @@ function concatenarIds(equipo1, equipo2) {
     }
     else { id_concatenados = id1 + id2 }
     var cosa = String(id_concatenados)
-    if (cosa.includes("undefined")) { console.log("Esto no me va") }
+    if (cosa.includes("undefined")) { }
     else { return cosa }
 }

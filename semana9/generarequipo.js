@@ -8,6 +8,7 @@ function generarEquipo(id_equipo) {
     var Equipo = function (nombre_establecido, id_equipo) {
         Equipo.prototype.id_equipo = id_equipo + 10
         Equipo.prototype.nombre_equipo = nombre_establecido
+        Equipo.prototype.globos_hinchados = 0
         Equipo.prototype.puntos = 0
         Equipo.prototype.partidos_jugados = 0
         Equipo.prototype.victorias = 0
