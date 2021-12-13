@@ -1,3 +1,10 @@
+/**
+ * Función para crear una liga de deportes
+ * @param {Array
+ * } array_equipos - array con los datos de todos los equipos participantes
+ * @returns 
+ */
+
 function generarLiga(array_equipos) {
     var lista_equipos = array_equipos
     var deporte = "inflar globos"

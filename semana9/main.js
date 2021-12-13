@@ -10,6 +10,6 @@ function main() {
         console.log(array_equipos[i])
     }
     var nueva_liga = generarLiga(array_equipos)
-    console.log(nueva_liga)
+    Finaliga = jugarLiga(nueva_liga)
 }
 main()  
