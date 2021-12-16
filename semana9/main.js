@@ -1,6 +1,5 @@
 /**
     * Función principal
-    * @type {string} mainarray - array devuelto de la creación
 */
 function main() {
     array_equipos = ["Lista de participantes:"]

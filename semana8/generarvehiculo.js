@@ -1,6 +1,6 @@
 /**
  * Función para generar un vehiculo a introducir, con una id específica
- * @returns objeto - objeto 
+ * @returns vehiculo - nuevo objeto 
  */
 function generarvehiculo() {
     var Vehiculo = function (nombre_vehiculo, tipo_vehiculo, id_vehiculo) {

@@ -1,6 +1,5 @@
 /**
-    * Función principal
-    * @type {string} mainarray - array devuelto de la creación
+    * Función principal con el menú del parking
 */
 function main() {
     var menusito = true

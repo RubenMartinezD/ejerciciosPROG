@@ -1,3 +1,8 @@
+/**
+ * Función para que el usuario decida si A o si B
+ * @returns cocheocamion - que viene siendo A o B
+ * 
+ */
 function decidirsicocheocamion() {
     var decision = false
     do {

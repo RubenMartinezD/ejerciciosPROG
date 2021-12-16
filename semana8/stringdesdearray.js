@@ -1,6 +1,10 @@
-function megaStringArray(array_parking) {
+/**
+ * Función para convertir un listado de datos en un array legible
+ * @returns string_milenaria - string con la frase completa
+ *
+< */function megaStringArray(array_parking) {
     var array_con_objetos = array_parking
-    var array_milenario = []
+    var array_milenario = []    // array donde se introducirá el string completo
     var partearray = []
     for (i in array_con_objetos) {
         if (i == 0) {
