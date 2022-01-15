@@ -1,10 +1,9 @@
 /**
     * Función principal
-    * @type {string} mainarray - array devuelto de la creación
 */
 function main() {
     var cadena = entrada()
-    var cosa = mayusculear(cadena)
-    alert("Aquí tienes tu frasecita en mayúsculas: \n" + cosa)
+    var contar = conteo(cadena)
+    alert("Se encontraron " + contar + " usos de vocales en tu frase")
 }
 main()  
