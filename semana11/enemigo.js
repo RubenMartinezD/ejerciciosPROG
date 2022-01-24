@@ -32,6 +32,10 @@ class Enemigo {
     recibirDaño(daño_recibido) {
         this.PV = (this.PV - daño_recibido)
         console.log(this.nombre + " recibió " + daño_recibido + " puntos de daño. Su salud actual es de " + this.PV + " PV.")
-
+    }
+    recibirExp(valor_exp) {
+        this.valor_exp = parseInt(valor_exp)
+        let puntos_exp = ((this.NV * 5) / this.valor_exp)
+        console.log("Al matar al " + this.nombre + " se reciben " + puntos_exp + " puntos de experiencia.")
     }
 }
