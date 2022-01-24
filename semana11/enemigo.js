@@ -29,4 +29,9 @@ class Enemigo {
     set setAT(AT) {
         this.AT = AT;
     }
+    recibirDaño(daño_recibido) {
+        this.PV = (this.PV - daño_recibido)
+        console.log(this.nombre + " recibió " + daño_recibido + " puntos de daño. Su salud actual es de " + this.PV + " PV.")
+
+    }
 }
