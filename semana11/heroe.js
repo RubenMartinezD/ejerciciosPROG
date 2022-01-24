@@ -1,12 +1,13 @@
 /**
  * 
  */
-class Enemigo {
+class Heroe {
     constructor(nombre, NV, PV, AT) {
         this.nombre = nombre;
         this.NV = NV;
         this.PV = PV;
         this.AT = AT;
+        this.EXP = 0;
     }
     get getnombre() {
         return this.nombre;
@@ -35,31 +36,40 @@ class Enemigo {
 
     /**
      * 
-     * @param {integer} daño_recibido -- Daño recibido por el enemigo
+     * @param {integer} daño_recibido -- Daño recibido por el héroe
      */
     recibirDaño(daño_recibido) {
         this.PV = (this.PV - daño_recibido);
         console.log(this.nombre + " recibió " + daño_recibido + " puntos de daño. Su salud actual es de " + this.PV + " PV.");
     }
 
+    subirNivel() {
+        this.NV += 1;
+        this.EXP = 0;
+        console.log(this.nombre + " subió al nivel " + this.NV);
+    }
+
     /**
      * Función para calcular la experiencia obtenida
      * @param {integer} valor_exp - Variable para ajustar el nivel de experiencia
      */
-    entregarExp(valor_exp) {
+    recibirExp(valor_exp) {
+        console.log(this.nombre + " recibió " + valor_exp + " puntos de experiencia");
         this.valor_exp = parseInt(valor_exp);
-        let puntos_exp = ((this.NV * 5) / this.valor_exp);
-        console.log("Al matar al " + this.nombre + " se reciben " + puntos_exp + " puntos de experiencia.");
+        this.EXP += this.valor_exp;
+        if (this.EXP >= 10) {
+            this.subirNivel();
+        }
     }
 
     /**
-     * Determinar si el enemigo está vivo o no. Cuando esté muerto mantener su valor de PV en 0.
+     * Determinar si el héroe está vivo o no. Cuando esté muerto mantener su valor de PV en 0.
      * @returns {boolean} vivo 
      */
-    viveEnemigo() {
+    viveHeroe() {
         let vivo;
         if (this.PV < 0) {
-            this.PV = 0;
+            this.PV = 0
             vivo = false;
         } else if (this.PV == 0) {
             vivo = false;
@@ -70,14 +80,14 @@ class Enemigo {
     }
 
     /**
-     * Devuelve un mensaje en función de si el enemigo se encuentra vivo o muerto.
+     * Devuelve un mensaje en función de si el héroe se encuentra vivo o muerto.
      */
     viveMensaje() {
-        let estado_vivo = this.viveEnemigo();
+        let estado_vivo = this.viveHeroe();
         if (estado_vivo == true) {
-            console.log("El " + this.nombre + " se encuentra vivo.");
+            console.log(this.nombre + " se encuentra vivo.");
         } else {
-            console.log("El " + this.nombre + " se encuentra muerto.");
+            console.log(this.nombre + " se encuentra muerto.");
         }
     }
 }
