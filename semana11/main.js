@@ -21,5 +21,7 @@ function main() {
     caso.recibirDaño(45);
     caso.viveMensaje();
     console.log("El nivel de " + caso.getnombre + " es " + caso.getNV + ". Su salud actual es de " + caso.getPV + " puntos y su poder de ataque es de " + caso.getAT);
+    console.log("Nuestro héroe " + caso.getnombre + " tiene una potencia de ataque de " + caso.potenciaAtaque() + " kilotones.");
+
 }
 main()

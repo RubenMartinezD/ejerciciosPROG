@@ -90,4 +90,10 @@ class Heroe {
             console.log(this.nombre + " se encuentra muerto.");
         }
     }
+
+    potenciaAtaque() {
+        let potencia_final;
+        potencia_final = (this.AT * this.NV)
+        return potencia_final;
+    }
 }
