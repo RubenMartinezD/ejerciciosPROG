@@ -14,7 +14,7 @@ function main() {
             enemigo.recibirDaño(heroe.potenciaAtaque());
             if (!enemigo.vivePersonaje()) {
                 enemigo.viveMensaje();
-                heroe.recibirExp(enemigo.entregarEXP(heroe.NV));
+                heroe.recibirEXP(enemigo.entregarEXP(heroe.NV));
             }
             var_ultimoturno = -1;
         } else if (var_ultimoturno == -1) {

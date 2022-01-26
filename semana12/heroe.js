@@ -59,7 +59,7 @@ this.AT = AT;
      * Función para calcular la experiencia obtenida
      * @param {integer} valor_exp - Variable para ajustar el nivel de experiencia
      */
-    recibirExp(valor_exp) {
+    recibirEXP(valor_exp) {
         alert(this.nombre + " recibió " + valor_exp + " puntos de experiencia");
         this.valor_exp = parseInt(valor_exp);
         this.EXP += this.valor_exp;
