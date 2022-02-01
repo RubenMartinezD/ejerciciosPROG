@@ -7,6 +7,7 @@ class Heroe extends Personaje {
         this.nombre = nombre;
         this.NV = NV;
         this.PV = PV;
+        this.PVMAX = PV;
         this.AT = AT;
         this.EXP = 0;
     }
@@ -37,6 +38,15 @@ class Heroe extends Personaje {
     this.AT = AT;
     }
     */
+    get getPVMAX() {
+        return this.PVMAX
+    }
+    get getEXP() {
+        return this.EXP
+    }
+    set setEXP(EXP) {
+        this.EXP = EXP;
+    }
 
     /**
      * 
@@ -47,7 +57,7 @@ class Heroe extends Personaje {
         this.PV = (this.PV - daño_recibido);
         alert(this.nombre + " recibió " + daño_recibido + " puntos de daño. Su salud actual es de " + this.PV + " PV.");
     }
-*/
+    */
 
     /**
      * Función para subir el nivel al héroe.
@@ -56,6 +66,7 @@ class Heroe extends Personaje {
         this.NV += 1;
         this.EXP = 0;
         alert(this.nombre + " subió al nivel " + this.NV + "!");
+        $("#NVH").html(heroe.NV)
     }
 
     /**
@@ -69,6 +80,7 @@ class Heroe extends Personaje {
         if (this.EXP >= 10) {
             this.subirNivel();
         }
+        $("#EXPH").html(heroe.EXP)
     }
 
     /*
@@ -84,7 +96,7 @@ class Heroe extends Personaje {
         }
         return vivo;
     }
-*/
+    */
 
     /**
      * Devuelve un mensaje en función de si el héroe se encuentra vivo o muerto.
@@ -98,7 +110,7 @@ class Heroe extends Personaje {
             alert(this.nombre + " se encuentra muerto.");
         }
     }
-*/
+    */
 
     /**
      * Determina la potencia de ataque final del héroe

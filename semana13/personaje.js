@@ -6,6 +6,7 @@ class Personaje {
         this.nombre = nombre;
         this.NV = NV;
         this.PV = PV;
+        this.PVMAX = PV;
         this.AT = AT;
     }
     get getnombre() {
@@ -29,6 +30,7 @@ class Personaje {
     set setPV(PV) {
         this.PV = PV;
     }
+
     set setAT(AT) {
         this.AT = AT;
     }
@@ -43,6 +45,8 @@ class Personaje {
             this.PV = 0;
         }
         alert(this.nombre + " recibió " + daño_recibido + " puntos de daño. Su salud actual es de " + this.PV + " PV.");
+        $("#PVE").html(enemigo.getPV)
+        $("#PVH").html(heroe.getPV)
     }
 
     /**
@@ -52,12 +56,17 @@ class Personaje {
     vivePersonaje() {
         let vivo;
         if (this.PV < 0) {
-            this.PV = 0;
             vivo = false;
+            $("#PVE").html(enemigo.getPV)
+            $("#PVH").html(heroe.getPV)
         } else if (this.PV == 0) {
             vivo = false;
+            $("#PVE").html(enemigo.getPV)
+            $("#PVH").html(heroe.getPV)
         } else {
             vivo = true;
+            $("#PVE").html(enemigo.getPV)
+            $("#PVH").html(heroe.getPV)
         }
         return vivo;
     }

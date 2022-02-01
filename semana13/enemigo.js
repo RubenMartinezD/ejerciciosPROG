@@ -7,6 +7,7 @@ class Enemigo extends Personaje {
         this.nombre = nombre;
         this.NV = NV;
         this.PV = PV;
+        this.PVMAX = PV;
         this.AT = AT;
     }
 
@@ -36,14 +37,17 @@ class Enemigo extends Personaje {
     this.AT = AT;
     }
     
+    
     */
-
-    /*
-    recibirDaño(daño_recibido) {
-    this.PV = (this.PV - daño_recibido);
-    alert(this.nombre + " recibió " + daño_recibido + " puntos de daño. Su salud actual es de " + this.PV + " PV.");
-    }
-    */
+    get getPVMAX() {
+            return this.PVMAX
+        }
+        /*
+        recibirDaño(daño_recibido) {
+        this.PV = (this.PV - daño_recibido);
+        alert(this.nombre + " recibió " + daño_recibido + " puntos de daño. Su salud actual es de " + this.PV + " PV.");
+        }
+        */
 
     /**
      * Función para calcular la experiencia obtenida
