@@ -50,23 +50,24 @@ class Personaje {
     }
 
     /**
-     * Determinar si el personaje está vivo o no. Cuando esté muerto mantener su valor de PV en 0.
+     * Determinar si el personaje está vivo o no. Cuando esté muerto mantener su valor de PV en 0. Usar esta función para definir los stats al inicio.
      * @returns {boolean} vivo 
      */
     vivePersonaje() {
+        $("#PVE").html(enemigo.getPV)
+        $("#NVE").html(enemigo.getNV)
+        $("#PVH").html(heroe.getPV)
+        $("#NVH").html(heroe.getNV)
+        $("#PVHMAX").html(heroe.getPVMAX)
+        $("#PVEMAX").html(enemigo.getPVMAX)
+        $("#EXPH").html(heroe.getEXP)
         let vivo;
         if (this.PV < 0) {
             vivo = false;
-            $("#PVE").html(enemigo.getPV)
-            $("#PVH").html(heroe.getPV)
         } else if (this.PV == 0) {
             vivo = false;
-            $("#PVE").html(enemigo.getPV)
-            $("#PVH").html(heroe.getPV)
         } else {
             vivo = true;
-            $("#PVE").html(enemigo.getPV)
-            $("#PVH").html(heroe.getPV)
         }
         return vivo;
     }

@@ -25,22 +25,25 @@ function main() {
         "border-style": "solid",
         "border-color": "black"
     })
+    var boton_inicio = document.getElementById("boton_empezar")
+    boton_inicio.addEventListener('click', iniciarJuego);
+
     var boton_combate = document.getElementById("boton_atacar")
     boton_combate.addEventListener('click', combate);
 
-    function combate() {
+    function iniciarJuego() {
         var nomheroe = prompt("Dame el nombre del héroe");
         heroe = new Heroe(nomheroe, 2, 20, 5)
         enemigo = new Enemigo("Rodolfo", 5, 25, 7)
+        $("#NOMH").html(heroe.getnombre)
+        $("#NOME").html(enemigo.getnombre)
         alert("El nivel de " + heroe.getnombre + " es " + heroe.getNV + ". Su salud actual es de " + heroe.getPV + " puntos y su poder de ataque es de " + heroe.getAT);
-        $("#PVHMAX").html(heroe.getPVMAX)
-        $("#PVEMAX").html(enemigo.getPVMAX)
-            // $("lvl, #NV, .heroe").html(heroe.getNV)
-            //$("#PV, .heroe").html(heroe.getPV)
-            //$("#EXP, .heroe").html(heroe.getEXP)
         alert("El nivel de " + enemigo.getnombre + " es " + enemigo.getNV + ". Su salud actual es de " + enemigo.getPV + " puntos y su poder de ataque es de " + enemigo.getAT);
-        $("#NVE").html(enemigo.getNV)
-            //$("#PV, .enemigo").html(heroe.getPV)
+        heroe.vivePersonaje();
+        enemigo.vivePersonaje();
+    }
+
+    function combate() {
         var var_ultimoturno = 0
         while (heroe.vivePersonaje() == true && enemigo.vivePersonaje() == true) {
             if (var_ultimoturno == 0 || var_ultimoturno == 1) {
@@ -59,9 +62,10 @@ function main() {
                     alert("GAME OVER");
                 }
                 var_ultimoturno = 1;
+                break;
             }
-
         }
     }
 }
+
 main()
