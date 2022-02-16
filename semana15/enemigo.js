@@ -25,7 +25,7 @@ class Enemigo extends Personaje {
     entregarEXP(valor_exp) {
         this.valor_exp = parseInt(valor_exp);
         let puntos_exp = ((this.NV * 5) / this.valor_exp);
-        // alert("Al matar al " + this.nombre + " se reciben " + puntos_exp + " puntos de experiencia.");
+        // alert("Al matar al " + this.nombre + " se reciben " + puntos_exp + " puntos de experiencia");
         return puntos_exp;
     }
 }

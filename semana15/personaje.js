@@ -82,7 +82,7 @@ class Personaje {
         } else { // daño normal
             let ataque = poder_atacante;
             let defensa = poder_defensor;
-            let daño_recibido = Math.floor(((ataque - (defensa / 2) + (((ataque - (defensa / 2) + 1) * Math.floor(Math.random() * 256)) / 256)) / 4)) //Fórmula de daño sacada de internet
+            let daño_recibido = Math.floor(((ataque - (defensa / 2) + (((ataque - (defensa / 2) + 1) * Math.floor(Math.random() * 256)) / 256)) / 4)) //Fórmula de daño sacada de algún sitio
             if (isDefendiendo == true) {
                 daño_recibido = Math.floor(daño_recibido / 2)
             }

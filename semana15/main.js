@@ -85,7 +85,7 @@ function main() {
     }
 
     /**
-     * Función para cuando se selecciona la opción "defender"
+     * Función para cuando se selecciona la opción "Defender"
      */
     function accionDefender() {
         if (juego == false) { alert("¡Necesitas comenzar una partida para jugar!") } else if (heroe.vivePersonaje() == true && enemigo.vivePersonaje() == true) {

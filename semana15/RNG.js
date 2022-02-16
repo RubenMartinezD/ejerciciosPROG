@@ -1,3 +1,4 @@
+// Son la misma fórmula, pero las separo por claridad.
 function calculoCritico(valor_critico) {
     let critico;
     let random = Math.floor(Math.random() * 100)

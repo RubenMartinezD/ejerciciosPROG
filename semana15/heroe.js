@@ -58,7 +58,7 @@ class Heroe extends Personaje {
     /*
     recibirDaño(daño_recibido) {
         this.PV = (this.PV - daño_recibido);
-        alert(this.nombre + " recibió " + daño_recibido + " puntos de daño. Su salud actual es de " + this.PV + " PV.");
+        alert(this.nombre + " recibió " + daño_recibido + " puntos de daño.  Su salud actual es de " + this.PV + " PV.");
     }
     */
 
