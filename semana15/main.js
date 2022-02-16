@@ -29,20 +29,45 @@ function main() {
     boton_inicio.addEventListener('click', iniciarJuego);
 
     var boton_combate = document.getElementById("boton_atacar")
-    boton_combate.addEventListener('click', combate);
+    boton_combate.addEventListener('click', accionAtacar);
+
+    /*   var boton_defensa = document.getElementById("boton_defender")
+       boton_defensa.addEventListener('click', accionDefender);
+       */
 
     function iniciarJuego() {
         var nomheroe = prompt("Dame el nombre del héroe");
-        heroe = new Heroe(nomheroe, 2, 20, 5)
-        enemigo = new Enemigo("Rodolfo", 5, 25, 7)
+        heroe = new Heroe(nomheroe, 2, 20, 5, 2, 25, 18)
+        enemigo = new Enemigo("Rodolfo", 5, 25, 7, 5, 3, 1)
         $("#NOMH").html(heroe.getnombre)
         $("#NOME").html(enemigo.getnombre)
-        alert("El nivel de " + heroe.getnombre + " es " + heroe.getNV + ". Su salud actual es de " + heroe.getPV + " puntos y su poder de ataque es de " + heroe.getAT);
-        alert("El nivel de " + enemigo.getnombre + " es " + enemigo.getNV + ". Su salud actual es de " + enemigo.getPV + " puntos y su poder de ataque es de " + enemigo.getAT);
+        alert("El nivel de " + heroe.getnombre + " es " + heroe.getNV + ". Su salud actual es de " + heroe.getPV + " puntos, su poder de ataque es de " + heroe.getAT + " y posee " + heroe.getDF + " puntos de defensa.");
+        alert("El nivel de " + enemigo.getnombre + " es " + enemigo.getNV + ". Su salud actual es de " + enemigo.getPV + " puntos, su poder de ataque es de " + enemigo.getAT + " y posee " + enemigo.getDF + " puntos de defensa.");
         heroe.vivePersonaje();
         enemigo.vivePersonaje();
     }
 
+    function accionAtacar() {
+        if (heroe.vivePersonaje() == true && enemigo.vivePersonaje() == true) {
+            alert(heroe.getnombre + " ataca!");
+            enemigo.recibirDaño(heroe.getAT, enemigo.getDF, heroe.getCR, enemigo.getEV);
+            if (!enemigo.vivePersonaje()) {
+                enemigo.viveMensaje();
+                heroe.recibirEXP(Math.floor(enemigo.entregarEXP(heroe.NV)));
+            }
+            if (enemigo.vivePersonaje() == true) {
+                alert(enemigo.getnombre + " enemigo ataca!");
+                heroe.recibirDaño(enemigo.getAT, heroe.getDF, enemigo.getCR, heroe.getEV)
+                if (!heroe.vivePersonaje()) {
+                    heroe.viveMensaje();
+                    alert("GAME OVER");
+                }
+            }
+        } else alert("Se acabó la partida.");
+    }
+}
+
+/*
     function combate() {
         var var_ultimoturno = 0
         while (heroe.vivePersonaje() == true && enemigo.vivePersonaje() == true) {
@@ -66,6 +91,8 @@ function main() {
             }
         }
     }
-}
+    //   heroe.recibirDaño(Math.floor((enemigo.AT) / 3))
+*/
+
 
 main()

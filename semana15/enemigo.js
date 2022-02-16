@@ -2,13 +2,16 @@
  * Creación de objeto enemigo.
  */
 class Enemigo extends Personaje {
-    constructor(nombre, NV, PV, AT) {
-        super(nombre, NV, PV, AT);
+    constructor(nombre, NV, PV, AT, DF, CR, EV) {
+        super(nombre, NV, PV, AT, DF, CR, EV);
         this.nombre = nombre;
         this.NV = NV;
         this.PV = PV;
         this.PVMAX = PV;
         this.AT = AT;
+        this.DF = DF;
+        this.CR = CR;
+        this.EV = EV;
     }
 
     get getPVMAX() {
