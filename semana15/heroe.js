@@ -119,9 +119,11 @@ class Heroe extends Personaje {
      * Determina la potencia de ataque final del héroe
      * @returns {integer} potencia_final
      */
+    /*
     potenciaAtaque() {
         let potencia_final;
         potencia_final = (this.AT * this.NV)
         return potencia_final;
     }
+    */
 }

@@ -31,10 +31,12 @@ function main() {
     var boton_combate = document.getElementById("boton_atacar")
     boton_combate.addEventListener('click', accionAtacar);
 
-    /*   var boton_defensa = document.getElementById("boton_defender")
-       boton_defensa.addEventListener('click', accionDefender);
-       */
+    var boton_defensa = document.getElementById("boton_defensa")
+    boton_defensa.addEventListener('click', accionDefender);
 
+    /**
+     * Función para determinar los parámetros iniciales del juego y mostrarlos en el .html
+     */
     function iniciarJuego() {
         var nomheroe = prompt("Dame el nombre del héroe");
         heroe = new Heroe(nomheroe, 2, 20, 5, 2, 25, 18)
@@ -47,21 +49,39 @@ function main() {
         enemigo.vivePersonaje();
     }
 
+    /**
+     * Función para cuando se selecciona la opción "atacar"
+     */
     function accionAtacar() {
         if (heroe.vivePersonaje() == true && enemigo.vivePersonaje() == true) {
             alert(heroe.getnombre + " ataca!");
-            enemigo.recibirDaño(heroe.getAT, enemigo.getDF, heroe.getCR, enemigo.getEV);
+            enemigo.recibirDaño(heroe.getAT, enemigo.getDF, heroe.getCR, enemigo.getEV, false);
             if (!enemigo.vivePersonaje()) {
                 enemigo.viveMensaje();
                 heroe.recibirEXP(Math.floor(enemigo.entregarEXP(heroe.NV)));
             }
             if (enemigo.vivePersonaje() == true) {
                 alert(enemigo.getnombre + " enemigo ataca!");
-                heroe.recibirDaño(enemigo.getAT, heroe.getDF, enemigo.getCR, heroe.getEV)
+                heroe.recibirDaño(enemigo.getAT, heroe.getDF, enemigo.getCR, heroe.getEV, false)
                 if (!heroe.vivePersonaje()) {
                     heroe.viveMensaje();
                     alert("GAME OVER");
                 }
+            }
+        } else alert("Se acabó la partida.");
+    }
+
+    /**
+     * Función para cuando se selecciona la opción "defender"
+     */
+    function accionDefender() {
+        if (heroe.vivePersonaje() == true && enemigo.vivePersonaje() == true) {
+            alert(heroe.getnombre + " adopta una postura defensiva!");
+            alert(enemigo.getnombre + " enemigo ataca!");
+            heroe.recibirDaño(enemigo.getAT, heroe.getDF, enemigo.getCR, heroe.getEV, true)
+            if (!heroe.vivePersonaje()) {
+                heroe.viveMensaje();
+                alert("GAME OVER");
             }
         } else alert("Se acabó la partida.");
     }

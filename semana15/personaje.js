@@ -58,13 +58,19 @@ class Personaje {
 
 
     /**
-     * Función para calcular el daño inflingido.
-     * @param {integer} daño_recibido -- Daño recibido por el oponente
+     * Función para calcular el daño recibido
+     * @param {integer} poder_atacante - Poder de ataque del atacante
+     * @param {*} poder_defensor - Poder de defensa del defensor
+     * @param {*} critico_atacante - Porcentaje de golpe crítico del atacante
+     * @param {*} evasion_defensor - Porcentaje de evasión del defensor
+     * @param {*} accion_defendiendo - Si true, indica que el personaje se está defendiendo y recibe la mitad del daño
      */
-    recibirDaño(poder_atacante, poder_defensor, critico_atacante, evasion_defensor) {
+
+    recibirDaño(poder_atacante, poder_defensor, critico_atacante, evasion_defensor, accion_defendiendo) {
         var isCritico = calculoCritico(critico_atacante)
         var isEsquivado = calculoEvasion(evasion_defensor)
-        if (isCritico == true) { //si recibe un golpe crítico
+        var isDefendiendo = accion_defendiendo
+        if (isCritico == true) {
             let daño_recibido = poder_atacante //ignorar defensa para los golpes críticos
             this.PV = (this.PV - daño_recibido);
             if (this.PV < 0) {
@@ -76,9 +82,12 @@ class Personaje {
         } else { // daño normal
             let ataque = poder_atacante;
             let defensa = poder_defensor;
-            let daño_recibido = Math.floor(((ataque - (defensa / 2) + (((ataque - (defensa / 2) + 1) * Math.floor(Math.random() * 256)) / 256)) / 4))
+            let daño_recibido = Math.floor(((ataque - (defensa / 2) + (((ataque - (defensa / 2) + 1) * Math.floor(Math.random() * 256)) / 256)) / 4)) //Fórmula de daño sacada de internet
+            if (isDefendiendo == true) {
+                daño_recibido = Math.floor(daño_recibido / 2)
+            }
             if (daño_recibido == 0) {
-                alert(this.nombre + " no recibió daño!")
+                alert(this.nombre + " bloqueó el golpe y no recibió daño!")
             } else {
                 this.PV = (this.PV - daño_recibido);
                 if (this.PV < 0) {
