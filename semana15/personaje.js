@@ -135,5 +135,4 @@ class Personaje {
             alert(this.nombre + " muere!");
         }
     }
-
 }

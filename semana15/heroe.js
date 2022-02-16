@@ -86,6 +86,20 @@ class Heroe extends Personaje {
         $("#EXPH").html(heroe.EXP)
     }
 
+    preguntaContinue() {
+        let juego;
+        var pregunta = prompt("¿Continuar? S- Sí  N-No")
+        switch (pregunta) {
+            case "s" || "S" || "si" || "Si" || "SI":
+                juego = true;
+                return juego;
+            case "n" || "N" || "no" || "No" || "NO":
+                alert("Pues hasta luego");
+                juego = false;
+                return juego;
+        }
+    }
+
     /*
     viveHeroe() {
         let vivo;

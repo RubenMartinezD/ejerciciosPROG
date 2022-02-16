@@ -25,8 +25,12 @@ function main() {
         "border-style": "solid",
         "border-color": "black"
     })
+    var juego = false
     var boton_inicio = document.getElementById("boton_empezar")
-    boton_inicio.addEventListener('click', iniciarJuego);
+    boton_inicio.addEventListener('click', () => {
+        iniciarJuego();
+        juego = true;
+    });
 
     var boton_combate = document.getElementById("boton_atacar")
     boton_combate.addEventListener('click', accionAtacar);
@@ -39,7 +43,7 @@ function main() {
      */
     function iniciarJuego() {
         var nomheroe = prompt("Dame el nombre del héroe");
-        heroe = new Heroe(nomheroe, 2, 20, 5, 2, 25, 18)
+        heroe = new Heroe(nomheroe, 2, 20, 5, 2, 40, 25)
         enemigo = new Enemigo("Rodolfo", 5, 25, 7, 5, 3, 1)
         $("#NOMH").html(heroe.getnombre)
         $("#NOME").html(enemigo.getnombre)
@@ -53,12 +57,16 @@ function main() {
      * Función para cuando se selecciona la opción "atacar"
      */
     function accionAtacar() {
-        if (heroe.vivePersonaje() == true && enemigo.vivePersonaje() == true) {
+        if (juego == false) { alert("¡Necesitas comenzar una partida para jugar!") } else if (heroe.vivePersonaje() == true && enemigo.vivePersonaje() == true) {
             alert(heroe.getnombre + " ataca!");
             enemigo.recibirDaño(heroe.getAT, enemigo.getDF, heroe.getCR, enemigo.getEV, false);
             if (!enemigo.vivePersonaje()) {
                 enemigo.viveMensaje();
                 heroe.recibirEXP(Math.floor(enemigo.entregarEXP(heroe.NV)));
+                juego = heroe.preguntaContinue();
+                if (juego == true) {
+                    iniciarJuego();
+                }
             }
             if (enemigo.vivePersonaje() == true) {
                 alert(enemigo.getnombre + " enemigo ataca!");
@@ -66,7 +74,12 @@ function main() {
                 if (!heroe.vivePersonaje()) {
                     heroe.viveMensaje();
                     alert("GAME OVER");
+                    juego = heroe.preguntaContinue();
+                    if (juego == true) {
+                        iniciarJuego();
+                    }
                 }
+
             }
         } else alert("Se acabó la partida.");
     }
@@ -75,15 +88,25 @@ function main() {
      * Función para cuando se selecciona la opción "defender"
      */
     function accionDefender() {
-        if (heroe.vivePersonaje() == true && enemigo.vivePersonaje() == true) {
+        if (juego == false) { alert("¡Necesitas comenzar una partida para jugar!") } else if (heroe.vivePersonaje() == true && enemigo.vivePersonaje() == true) {
             alert(heroe.getnombre + " adopta una postura defensiva!");
             alert(enemigo.getnombre + " enemigo ataca!");
             heroe.recibirDaño(enemigo.getAT, heroe.getDF, enemigo.getCR, heroe.getEV, true)
             if (!heroe.vivePersonaje()) {
                 heroe.viveMensaje();
                 alert("GAME OVER");
+                juego = heroe.preguntaContinue();
+                if (juego == true) {
+                    iniciarJuego();
+                }
             }
-        } else alert("Se acabó la partida.");
+        } else {
+            alert("Se acabó la partida.");
+            juego = heroe.preguntaContinue();
+            if (juego == true) {
+                iniciarJuego();
+            }
+        }
     }
 }
 
