@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+
+<body id="cuerpo">
+    <div> Tamaño del texto:<br>
+        <input type="radio" name="tamTexto" class="tamTexto" value="12px">12px
+        <br>
+        <input type="radio" name="tamTexto" class="tamTexto" value="26px">26px
+    </div><br>
+    <div> Propiedades del texto:<br>
+        <input type="checkbox" id="cursiva" value="italic"> Cursiva
+        <br>
+        <input type="checkbox" id="negrita" value="bolder"> Negrita
+    </div>
+    <div class="padre">
+        <div class="hijo">
+            <div class="heroe">
+                <h1>
+                    <nom id="NOMH"></nom>
+                </h1>
+                <h3>Nivel:
+                    <lvl id="NVH">-1</lvl>
+                </h3>
+                <h3>Experiencia:
+                    <exp id="EXPH">-1</exp>
+                </h3>
+                <h3>Salud:
+                    <hp id="PVH">-1</hp> de
+                    <hp id="PVHMAX">-1</hp>
+                </h3>
+            </div>
+        </div>
+        <div class="hijo">
+            <div class="enemigo">
+                <h1>
+                    <nom id="NOME"></nom>
+                </h1>
+                <h3>Nivel:
+                    <lvl id="NVE">-1</lvl>
+                </h3>
+                <h3>Salud:
+                    <hp id="PVE">-1</hp> de
+                    <hp id="PVEMAX">-1</hp>
+                </h3>
+            </div>
+        </div>
+    </div>
+    <p>¿Qué debería hacer nuestro héroe?</p>
+
+    <button id="boton_empezar">Comenzar juego</button>
+    <button id="boton_atacar">¡Atacar!</button>
+    <button id="boton_defensa">Defenderse</button>
+    <h1 class="mensaje">
+        Programación - DANIEL CASTELAO</h1>
+    <div>
+        <br> <b>TEXTO DEL NOMBRE DEL HEROE</b><br>
+        <div class="colorTexto">
+            <input type="radio" name="colorTexto" class="colorTH" value="red">Rojo
+            <br>
+            <input type="radio" name="colorTexto" class="colorTH" value="green">Verde
+            <br>
+            <input type="radio" name="colorTexto" class="colorTH" value="cyan">Cian
+            <br>
+            <input type="radio" name="colorTexto" class="colorTH" value="orange">Naranja
+        </div>
+
+
+        <div>
+            <br> <b>CAMBIAR COLOR DE FONDO DE PERSONAJE</b><br> Héroe: <br>
+            <input type="radio" name="colorHeroe" class="colorFH" value="white">Blanco
+            <br>
+            <input type="radio" name="colorHeroe" class="colorFH" value="teal">Verde
+            <br>
+            <input type="radio" name="colorHeroe" class="colorFH" value="yellow">Amarillo
+            <br> Enemigo: <br>
+            <input type="radio" name="colorEnemigo" class="colorFE" value="purple">Morado
+            <br>
+            <input type="radio" name="colorEnemigo" class="colorFE" value="brown">Marrón
+            <br>
+            <input type="radio" name="colorEnemigo" class="colorFE" value="Black">Negro
+            <br>
+
+        </div>
+        <div class="anotaciones">
+            <br> <b>ANOTACIONES DE JUGADOR</b><br>
+            <textarea id="anotabox" class="box" placeholder="Pon aquí las anotaciones " autofocus maxlength="255 " rows="10 " cols="50 "></textarea>
+            <button id="boton_guardar_anot">Guardar anotación</button>
+            <br>
+        </div>
+        <div>
+            <br> <b>BORRAR LOS DATOS DE SESIÓN</b><br>
+            <button id="boton_borrado">Pulsa aquí para borrar todos los datos</button>
+            <br>
+        </div>
+    </div>
+    <script src="personaje.js ">
+    </script>
+    <script src="eventos.js "></script>
+    <script src="preload.js"></script>
+    <script src="RNG.js "></script>
+    <script src="enemigo.js "></script>
+    <script src="heroe.js "></script>
+</body>
+<footer>
+    <script src="main.js "></script>
+</footer>
+
+</html>
