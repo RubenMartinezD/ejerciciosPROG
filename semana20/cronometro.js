@@ -5,12 +5,17 @@ function activarCronometro() {
 
     document.getElementById('start_cronometro').addEventListener('click', () => {
         if (int !== null) {
-            clearInterval(int);
+            clearInterval(int); // refrescar constantemente el intervalo
         }
         int = setInterval(displayTimer, 10);
     });
+
     document.getElementById('parar_cronometro').addEventListener('click', () => {
         clearInterval(int);
+    });
+
+    document.getElementById('flag_cronometro').addEventListener('click', () => {
+        flagTiempo(milisegundos, segundos, minutos, hora)
     });
 
 
@@ -38,6 +43,18 @@ function activarCronometro() {
     }
 }
 
+function flagTiempo(milisegundos, segundos, minutos, hora) {
+
+    var Flag = document.createElement("li");
+    var pantallazo_tiempo = document.createTextNode(hora + ":" + minutos + ":" + segundos + ":" + milisegundos); //añade texto al div creado.
+    Flag.appendChild(pantallazo_tiempo); // añade el elemento creado y su contenido al DOM
+
+
+    var lugar_insercion = document.getElementById("etiquita_tiempos");
+    var lugar_cronometro = document.getElementById("tiempos_parciales"); //se define el lugar del elemento padre
+    lugar_cronometro.insertBefore(Flag, lugar_insercion);
+
+}
 
 function crearIntervaloCronometro() {
     intervalo_cronometro = activarCronometro()
