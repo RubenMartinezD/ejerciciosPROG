@@ -4,7 +4,10 @@ function activarReloj() {
     var hora = fecha.getHours();
     var minutos = fecha.getMinutes();
     var segundos = fecha.getSeconds();
-    text_reloj.innerHTML = hora + ":" + minutos + ":" + segundos;
+    let h = hora < 10 ? "0" + hora : hora;
+    let m = minutos < 10 ? "0" + minutos : minutos;
+    let s = segundos < 10 ? "0" + segundos : segundos;
+    text_reloj.innerHTML = h + ":" + m + ":" + s;
 
 }
 

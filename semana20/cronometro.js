@@ -46,7 +46,11 @@ function activarCronometro() {
 function flagTiempo(milisegundos, segundos, minutos, hora) {
 
     var Flag = document.createElement("li");
-    var pantallazo_tiempo = document.createTextNode(hora + ":" + minutos + ":" + segundos + ":" + milisegundos); //añade texto al div creado.
+    let h = hora < 10 ? "0" + hora : hora;
+    let m = minutos < 10 ? "0" + minutos : minutos;
+    let s = segundos < 10 ? "0" + segundos : segundos;
+
+    var pantallazo_tiempo = document.createTextNode(h + ":" + m + ":" + s + ":" + milisegundos); //añade texto al div creado.
     Flag.appendChild(pantallazo_tiempo); // añade el elemento creado y su contenido al DOM
 
 
