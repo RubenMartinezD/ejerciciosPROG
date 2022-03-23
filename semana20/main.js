@@ -57,7 +57,8 @@ function main() {
     //AQUI LAS LLAMADAS A CREACIÓN DE INTERVALOS
 
     crearIntervaloReloj(); //Como es un reloj, no haría falta detener el intervalo, pero se crea el método stopIntervaloReloj, por se acaso
-    crearIntervaloCronometro()
+    crearIntervaloCronometro();
+    crearIntervaloTemporizador();
 }
 
 main();

@@ -29,7 +29,7 @@ function activarCronometro() {
                 minutos++;
                 if (minutos == 60) {
                     minutos = 0;
-                    horas++;
+                    hora++;
                 }
             }
         }
