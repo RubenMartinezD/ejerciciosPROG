@@ -39,6 +39,15 @@ function activarTemporizador() {
         clearInterval(int);
     });
 
+    document.getElementById('restart_temporizador').addEventListener('click', () => {
+        clearInterval(int);
+        milisegundos = 0
+        segundos = 0
+        minutos = 0
+        hora = 0
+        text_temporizador.innerHTML = "00:00:00";
+    });
+
 
     function displayTimer() { // calcular el tiempo de la cuenta atrás
         milisegundos += 10;
