@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Reloj multitarea</title>
+    <style>
+        #grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+            grid-auto-rows: minmax(100px, auto);
+        }
+        
+        #cambio {
+            margin-top: 10%;
+            grid-column: 1;
+            grid-row: 1;
+        }
+        
+        #funciones {
+            grid-column: 2;
+            grid-row: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="grid">
+        <div id="cambio">
+            <button id="activar_reloj">Reloj</button>
+            <br>
+            <br>
+            <button id="activar_cronometro">Cronómetro</button>
+            <br>
+            <br>
+            <button id="activar_temporizador">Temporizador</button>
+            <br>
+            <br>
+        </div>
+        <div id="funciones">
+            <div id="reloj" hidden>
+                <p>Reloj</p>
+                <p id="text_reloj">00:00:00</p>
+            </div>
+            <div id="cronometro" hidden>
+                <p>Cronómetro</p>
+                <p id="text_cronometro">00:00:00</p>
+                <button id="start_cronometro">Start</button>
+                <button id="parar_cronometro">Stop</button>
+                <button id="flag_cronometro">Flag</button>
+                <ul id="tiempos_parciales">
+                    <li id="etiqueta_tiempos">Tiempos parciales</li>
+                    <li id="etiquita_tiempos" hidden></li>
+                </ul>
+            </div>
+            <div id="temporizador" hidden>
+                <p>Temporizador</p>
+                <p id="text_temporizador">00:00:00</p>
+                <select id="hours_temporizador"></select> <select id="minutes_temporizador"></select> <select id="seconds_temporizador"></select>
+                <br>
+                <ul id="mensaje_fin">
+                    <li id="etiquita_fin" hidden></li>
+                </ul>
+                <br>
+                <button id="start_temporizador">Start</button>
+                <button id="stop_temporizador">Stop</button>
+                <button id="restart_temporizador">Restart</button>
+            </div>
+        </div>
+    </div>
+</body>
+<footer>
+    <script src="preload.js"></script>
+    <script src="reloj.js"></script>
+    <script src="cronometro.js"></script>
+    <script src="temporizador.js"></script>
+    <script src="main.js"></script>
+</footer>
+
+</html>
