@@ -1,69 +1,69 @@
-function activarCronometro() {
-    let [milisegundos, segundos, minutos, hora] = [0, 0, 0, 0];
-    var text_cronometro = document.getElementById("text_cronometro");
+function activateStopwatch() {
+    let [miliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
+    var text_stopwatch = document.getElementById("text_stopwatch");
     let int = null;
 
-    document.getElementById('start_cronometro').addEventListener('click', () => {
+    document.getElementById('start_stopwatch').addEventListener('click', () => {
         if (int !== null) {
             clearInterval(int); // refrescar constantemente el intervalo
         }
         int = setInterval(displayTimer, 10);
     });
 
-    document.getElementById('parar_cronometro').addEventListener('click', () => {
+    document.getElementById('stop_stopwatch').addEventListener('click', () => {
         clearInterval(int);
     });
 
-    document.getElementById('flag_cronometro').addEventListener('click', () => {
-        flagTiempo(milisegundos, segundos, minutos, hora)
+    document.getElementById('flag_stopwatch').addEventListener('click', () => {
+        flagTime(miliseconds, seconds, minutes, hours)
     });
 
 
     function displayTimer() {
-        milisegundos += 10;
-        if (milisegundos == 1000) {
-            milisegundos = 0;
-            segundos++;
-            if (segundos == 60) {
-                segundos = 0;
-                minutos++;
-                if (minutos == 60) {
-                    minutos = 0;
-                    hora++;
+        miliseconds += 10;
+        if (miliseconds == 1000) {
+            miliseconds = 0;
+            seconds++;
+            if (seconds == 60) {
+                seconds = 0;
+                minutes++;
+                if (minutes == 60) {
+                    minutes = 0;
+                    hours++;
                 }
             }
         }
 
-        let h = hora < 10 ? "0" + hora : hora;
-        let m = minutos < 10 ? "0" + minutos : minutos;
-        let s = segundos < 10 ? "0" + segundos : segundos;
-        let ms = milisegundos < 10 ? "00" + milisegundos : milisegundos < 100 ? "0" + milisegundos : milisegundos;
+        let h = hours < 10 ? "0" + hours : hours;
+        let m = minutes < 10 ? "0" + minutes : minutes;
+        let s = seconds < 10 ? "0" + seconds : seconds;
+        let ms = miliseconds < 10 ? "00" + miliseconds : miliseconds < 100 ? "0" + miliseconds : miliseconds;
 
-        text_cronometro.innerHTML = h + ":" + m + ":" + s;
+        text_stopwatch.innerHTML = h + ":" + m + ":" + s;
     }
 }
 
-function flagTiempo(milisegundos, segundos, minutos, hora) {
+function flagTime(miliseconds, seconds, minutes, hours) {
 
     var Flag = document.createElement("li");
-    let h = hora < 10 ? "0" + hora : hora;
-    let m = minutos < 10 ? "0" + minutos : minutos;
-    let s = segundos < 10 ? "0" + segundos : segundos;
+    let h = hours < 10 ? "0" + hours : hours;
+    let m = minutes < 10 ? "0" + minutes : minutes;
+    let s = seconds < 10 ? "0" + seconds : seconds;
 
-    var pantallazo_tiempo = document.createTextNode(h + ":" + m + ":" + s + ":" + milisegundos); //añade texto al div creado.
-    Flag.appendChild(pantallazo_tiempo); // añade el elemento creado y su contenido al DOM
+    var snapshot_timevalue = document.createTextNode(h + ":" + m + ":" + s + ":" + miliseconds); //añade texto al div creado.
+    Flag.appendChild(snapshot_timevalue); // añade el elemento creado y su contenido al DOM
 
 
-    var lugar_insercion = document.getElementById("etiquita_tiempos");
-    var lugar_cronometro = document.getElementById("tiempos_parciales"); //se define el lugar del elemento padre
-    lugar_cronometro.insertBefore(Flag, lugar_insercion);
+    var HTML_id_insertion = document.getElementById("hidden_stopwatch_tag");
+    var HTML_id_stopwatch = document.getElementById("user_defined_times"); //se define el lugar del elemento padre
+    HTML_id_stopwatch.insertBefore(Flag, HTML_id_insertion);
 
 }
 
-function crearIntervaloCronometro() {
-    intervalo_cronometro = activarCronometro()
+function createStopwatchInterval() {
+    stopwatch_interval = activateStopwatch()
 }
 
-function stopIntervaloCronometro() {
-    clearInterval(intervalo_cronometro);
+function stopIntervalostopwatch() {
+    clearInterval(stopwatch_interval);
 }

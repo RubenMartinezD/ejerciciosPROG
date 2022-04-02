@@ -1,69 +1,69 @@
-function activarTemporizador() {
-    let [milisegundos, segundos, minutos, hora] = [0, 0, 0, 0];
-    var text_temporizador = document.getElementById("text_temporizador");
+function activateTimer() {
+    let [miliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
+    var text_timer = document.getElementById("text_timer");
     let int = null;
 
-    //eventos para seleccionar horas, minutos y segundos y conservar los valores en las variables y el HTML
+    //eventos para seleccionar hourss, minutes y seconds y conservar los valores en las variables y el HTML
 
-    document.getElementById('horas_temporizador').addEventListener('change', (event) => {
-        var hora_seleccionada = event.target.value
-        console.log("nueva hora: " + hora_seleccionada)
-        hora = hora_seleccionada
+    document.getElementById('timer_hours').addEventListener('change', (event) => {
+        var selected_hour = event.target.value
+        console.log("nueva hora: " + selected_hour)
+        hours = selected_hour
         displayTimerHTML()
     });
 
-    document.getElementById('minutos_temporizador').addEventListener('change', (event) => {
-        var minutos_seleccionados = event.target.value
-        console.log("nuevos min: " + minutos_seleccionados)
-        minutos = minutos_seleccionados
+    document.getElementById('timer_minutes').addEventListener('change', (event) => {
+        var selected_minute = event.target.value
+        console.log("nuevos min: " + selected_minute)
+        minutes = selected_minute
         displayTimerHTML()
     });
 
-    document.getElementById('segundos_temporizador').addEventListener('change', (event) => {
-        var segundos_seleccionados = event.target.value
-        console.log("nuevos segundos: " + segundos_seleccionados)
-        segundos = segundos_seleccionados
+    document.getElementById('timer_seconds').addEventListener('change', (event) => {
+        var selected_second = event.target.value
+        console.log("nuevos segundos: " + selected_second)
+        seconds = selected_second
         displayTimerHTML()
     });
 
-    //eventos del temporizador
+    //eventos del timer
 
-    document.getElementById('start_temporizador').addEventListener('click', () => {
+    document.getElementById('start_timer').addEventListener('click', () => {
         if (int !== null) {
             clearInterval(int); // refrescar constantemente el intervalo
         }
         int = setInterval(displayTimer, 10);
     });
 
-    document.getElementById('stop_temporizador').addEventListener('click', () => {
+    document.getElementById('stop_timer').addEventListener('click', () => {
         clearInterval(int);
     });
 
-    document.getElementById('restart_temporizador').addEventListener('click', () => {
+    document.getElementById('restart_timer').addEventListener('click', () => {
         clearInterval(int);
-        milisegundos = 0
-        segundos = 0
-        minutos = 0
-        hora = 0
-        text_temporizador.innerHTML = "00:00:00";
+        miliseconds = 0
+        seconds = 0
+        minutes = 0
+        hours = 0
+        text_timer.innerHTML = "00:00:00";
     });
 
 
     function displayTimer() { // calcular el tiempo de la cuenta atrás
-        milisegundos += 10;
-        if (hora == 0 && minutos == 0 && segundos == 0) {
+        miliseconds += 10;
+        if (hours == 0 && minutes == 0 && seconds == 0) {
             clearInterval(int);
-            flagTemporizador();
+            flagtimer();
         }
-        if (milisegundos == 1000) {
-            milisegundos = 0;
-            segundos--;
-            if (segundos == -1) {
-                segundos = 59;
-                minutos--;
-                if (minutos == -1) {
-                    minutos = 59;
-                    hora--;
+        if (miliseconds == 1000) {
+            miliseconds = 0;
+            seconds--;
+            if (seconds == -1) {
+                seconds = 59;
+                minutes--;
+                if (minutes == -1) {
+                    minutes = 59;
+                    hours--;
                 }
             }
 
@@ -73,32 +73,32 @@ function activarTemporizador() {
 
     function displayTimerHTML() { //segunda parte de la función, muestra el tiempo actual en el HTML
 
-        let h = hora < 10 ? "0" + hora : hora;
-        let m = minutos < 10 ? "0" + minutos : minutos;
-        let s = segundos < 10 ? "0" + segundos : segundos;
-        let ms = milisegundos < 10 ? "00" + milisegundos : milisegundos < 100 ? "0" + milisegundos : milisegundos;
+        let h = hours < 10 ? "0" + hours : hours;
+        let m = minutes < 10 ? "0" + minutes : minutes;
+        let s = seconds < 10 ? "0" + seconds : seconds;
+        let ms = miliseconds < 10 ? "00" + miliseconds : miliseconds < 100 ? "0" + miliseconds : miliseconds;
 
-        text_temporizador.innerHTML = h + ":" + m + ":" + s;
+        text_timer.innerHTML = h + ":" + m + ":" + s;
 
     }
 }
 
 
 
-function flagTemporizador() { //mostrar el mensaje de temporizador acabado
+function flagtimer() { //mostrar el mensaje de timer acabado
     var Flag = document.createElement("li");
-    var mensaje_fin = document.createTextNode("Se acabó el temporizador.")
-    Flag.appendChild(mensaje_fin);
+    var end_message = document.createTextNode("Se acabó el timer.")
+    Flag.appendChild(end_message);
 
-    var lugar_insercion = document.getElementById("etiquita_fin")
-    var lugar_padre = document.getElementById("mensaje_fin")
-    lugar_padre.insertBefore(Flag, lugar_insercion)
+    var HTML_id_insertion = document.getElementById("hidden_end_tag")
+    var HTML_id_timer = document.getElementById("end_message")
+    HTML_id_timer.insertBefore(Flag, HTML_id_insertion)
 }
 
-function crearIntervaloTemporizador() {
-    intervalo_temporizador = activarTemporizador()
+function createTimerInterval() {
+    timer_interval = activateTimer()
 }
 
-function stopIntervaloTemporizador() {
-    clearInterval(intervalo_temporizador)
+function stopTimerInterval() {
+    clearInterval(timer_interval)
 }
