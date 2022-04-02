@@ -43,7 +43,7 @@ function activateStopwatch() {
     }
 }
 
-function flagTime(miliseconds, seconds, minutes, hours) {
+function flagTime(miliseconds, seconds, minutes, hours) { //necesarios cuatro parámetros para recoger el tiempo, uno para cada unidad de medida
 
     var Flag = document.createElement("li");
     let h = hours < 10 ? "0" + hours : hours;

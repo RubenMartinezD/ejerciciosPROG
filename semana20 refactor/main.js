@@ -11,7 +11,8 @@ function reset() {
 /*
 Permite crear el evento que muestre el primer argumento y oculte los otros dos
 */
-function activationEvent(show, hide1, hide2) {
+function activationEvent(show, hide1, hide2) { // tres parámetros relacionados puesto que representan las tres opciones del menú lateral: 
+    // la opción introducida en show se mostrará mientras que las otras dos entrarán por hide1 y hide2 y el usuario no las verá ya que estarán ocultas
     var div_show, div_hide1, div_hide2;
 
     div_show = document.getElementById(show.id.split("_")[1]);
