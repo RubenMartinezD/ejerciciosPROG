@@ -1,5 +1,5 @@
 function activateTimer() {
-    let [miliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
+    var timer_html = new Timer(0, 0, 0, 0)
     var text_timer = document.getElementById("text_timer");
     let int = null;
 
@@ -8,23 +8,25 @@ function activateTimer() {
     document.getElementById('timer_hours').addEventListener('change', (event) => {
         var selected_hour = event.target.value
         console.log("nueva hora: " + selected_hour)
-        hours = selected_hour
+        timer_html.hours = selected_hour
         displayTimerHTML()
     });
 
     document.getElementById('timer_minutes').addEventListener('change', (event) => {
         var selected_minute = event.target.value
         console.log("nuevos min: " + selected_minute)
-        minutes = selected_minute
+        timer_html.minutes = selected_minute
         displayTimerHTML()
     });
 
     document.getElementById('timer_seconds').addEventListener('change', (event) => {
         var selected_second = event.target.value
         console.log("nuevos segundos: " + selected_second)
-        seconds = selected_second
+        timer_html.seconds = selected_second
         displayTimerHTML()
     });
+
+
 
     //eventos del timer
 
@@ -32,7 +34,7 @@ function activateTimer() {
         if (int !== null) {
             clearInterval(int); // refrescar constantemente el intervalo
         }
-        int = setInterval(displayTimer, 10);
+        int = setInterval(displayTimer, 10, timer_html);
     });
 
     document.getElementById('stop_timer').addEventListener('click', () => {
@@ -49,21 +51,23 @@ function activateTimer() {
     });
 
 
-    function displayTimer() { // calcular el tiempo de la cuenta atrás
-        miliseconds += 10;
-        if (hours == 0 && minutes == 0 && seconds == 0) {
+
+
+    function displayTimer(timer_html) { // calcular el tiempo de la cuenta atrás
+        timer_html.miliseconds += 10;
+        if (timer_html.hours == 0 && timer_html.minutes == 0 && timer_html.seconds == 0) {
             clearInterval(int);
             flagtimer();
         }
-        if (miliseconds == 1000) {
-            miliseconds = 0;
-            seconds--;
-            if (seconds == -1) {
-                seconds = 59;
-                minutes--;
-                if (minutes == -1) {
-                    minutes = 59;
-                    hours--;
+        if (timer_html.miliseconds == 1000) {
+            timer_html.miliseconds = 0;
+            timer_html.seconds--;
+            if (timer_html.seconds == -1) {
+                timer_html.seconds = 59;
+                timer_html.minutes--;
+                if (timer_html.minutes == -1) {
+                    timer_html.minutes = 59;
+                    timer_html.hours--;
                 }
             }
 
@@ -73,17 +77,24 @@ function activateTimer() {
 
     function displayTimerHTML() { //segunda parte de la función, muestra el tiempo actual en el HTML
 
-        let h = hours < 10 ? "0" + hours : hours;
-        let m = minutes < 10 ? "0" + minutes : minutes;
-        let s = seconds < 10 ? "0" + seconds : seconds;
-        let ms = miliseconds < 10 ? "00" + miliseconds : miliseconds < 100 ? "0" + miliseconds : miliseconds;
+        let h = timer_html.hours < 10 ? "0" + timer_html.hours : timer_html.hours;
+        let m = timer_html.minutes < 10 ? "0" + timer_html.minutes : timer_html.minutes;
+        let s = timer_html.seconds < 10 ? "0" + timer_html.seconds : timer_html.seconds;
+        let ms = timer_html.miliseconds < 10 ? "00" + timer_html.miliseconds : timer_html.miliseconds < 100 ? "0" + timer_html.miliseconds : timer_html.miliseconds;
 
         text_timer.innerHTML = h + ":" + m + ":" + s;
 
     }
+
 }
 
+function createTimerInterval() {
+    timer_interval = activateTimer()
+}
 
+function stopTimerInterval() {
+    clearInterval(timer_interval)
+}
 
 function flagtimer() { //mostrar el mensaje de timer acabado
     var Flag = document.createElement("li");
@@ -93,12 +104,4 @@ function flagtimer() { //mostrar el mensaje de timer acabado
     var HTML_id_insertion = document.getElementById("hidden_end_tag")
     var HTML_id_timer = document.getElementById("end_message")
     HTML_id_timer.insertBefore(Flag, HTML_id_insertion)
-}
-
-function createTimerInterval() {
-    timer_interval = activateTimer()
-}
-
-function stopTimerInterval() {
-    clearInterval(timer_interval)
 }
