@@ -20,25 +20,25 @@ function hidUnused() {
     isTimer = localStorage.getItem("isTimer");
 
     if (isClock == null && isStopwatch == null && isTimer == null) {
-        isClock = 1;
-        isStopwatch = 0;
-        isTimer = 0;
+        isClock = true;
+        isStopwatch = false;
+        isTimer = false;
         localStorage.setItem("isClock", isClock);
         localStorage.setItem("isStopwatch", isStopwatch);
         localStorage.setItem("isTimer", isTimer);
     }
 
-    if (isClock != 1) {
+    if (!isClock) {
         clock.hidden = true;
     } else {
         clock.hidden = false;
     }
-    if (isStopwatch != 1) {
+    if (isStopwatch) {
         stopwatch.hidden = true;
     } else {
         stopwatch.hidden = false;
     }
-    if (isTimer != 1) {
+    if (isTimer) {
         timer.hidden = true;
     } else {
         timer.hidden = false;
