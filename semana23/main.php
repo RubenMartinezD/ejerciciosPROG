@@ -1,7 +1,4 @@
-<html>
-
-<body>
-    <?php
+<?php
 class Alumno {
     function construir($nombre, $apellido, $edad, $nota){
         $this->nombre = $nombre;
@@ -17,7 +14,7 @@ class Alumno {
         return $this->nombre;
       }
       public function set_apellido($apellido) {
-        $this->apellidos = $apellido;
+        $this->apellido = $apellido;
       }
       public function get_apellido() {
         return $this->apellido;
@@ -42,8 +39,13 @@ $apellido = $_REQUEST['apellido'];
 $edad = $_REQUEST['edad'];
 $nota = $_REQUEST['nota'];
 $alumnote = new Alumno($nombre,$apellido,$edad,$nota);
-echo "Registro exitoso.";
+$array_alumnos = [];
+array_push($array_alumnos, $alumnote);
+if ($array_alumnos == null){
+  $objetoFueCreado = false;
+  echo "<br><b>error</b><br><br>";
+}
+else{$objetoFueCreado = true;
+  echo "<br><b>OK</b><br><br>";
+}
 ?>
-</body>
-
-</html>

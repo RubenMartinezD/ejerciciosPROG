@@ -2,20 +2,20 @@
 <title> Entrada de usuarios</title>
 
 <head>
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 </head>
 
 <body>
 
-    <form name="formularioDatos" method="post" action="main.php">
+    <form name="formularioDatos" method="post">
         <p id="pnombre">Nombre: <input type="text" name="nombre" id="nombre" class="nombre" size="13" maxlength="25" style="width: 150px" value="no" required> </p>
         <p id="papellidos">Apellidos: <input type="text" name="apellido" id="apellido" class="apellido" size="13" maxlength="50" style="width: 150px" value="ap" required> </p>
         <p id="pedad">Edad: <input type="number" max="100" min="10" name="edad" id="edad" class="edad" size="13" maxlength="9" style="width: 80px" value="10" required> </p>
         <p id="pnota">Nota: <input type="number" max="10" min="0" name="nota" id="nota" class="nota" size="9" maxlength="2" style="width: 80px" value="3" required> </p>
         <p> <button id="registroini">Pulsar para registrarse</button></p>
     </form>
+    <p id="respuesta"></p>
 </body>
-<p id="response"></p>
 
 <script src="main.js"></script>
 
