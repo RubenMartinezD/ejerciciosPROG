@@ -1,9 +1,10 @@
 class Timer {
-    constructor(miliseconds, seconds, minutes, hours) {
-        this.miliseconds = miliseconds
-        this.seconds = seconds
-        this.minutes = minutes
-        this.hours = hours
+    constructor(model) {
+        this.model = model
+        this.temporizador = new Timer(0, 0, 0, 0)
     }
-
+    getModel() {
+        return this.model
+    }
+    this
 }
